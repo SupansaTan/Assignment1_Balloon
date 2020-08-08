@@ -1,22 +1,26 @@
 // Name : Supansa Tantulset
-// Date : 8 August 2020
-// Draw Balloon and can set color of balloon (fix some hardcode)
+// Date : 9 August 2020
+// Draw Balloon and can set color of balloon (fix all hardcode)
+
+// define global variables for storing colors 
+color blue = color(14,77,146);
+color white = color(255);
 
 void setup(){
   // set size of window 
   size(500,500);
   
   // set a background color of the window
-  background(255); // color : white
+  background(white);
 }
 
 void draw(){
-  // define variables for storing position x,y and extent
-  // <type of value> var name = value
+  // define local variables for storing position x,y and extent
   int position_x = 250, position_y = 200, size = 50;
   
-  fill(#0E4D92); // color : Yale Blue
-  stroke(14,77,146); // color : Yale Blue
+  // set color of balloon
+  fill(blue);
+  stroke(blue); 
   
   // draw balloon
   circle(position_x, position_y, size);
