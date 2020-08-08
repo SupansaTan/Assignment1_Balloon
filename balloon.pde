@@ -1,8 +1,8 @@
 // Name : Supansa Tantulset
 // Date : 9 August 2020
-// Draw Balloon and can set color of balloon (fix all hardcode)
+// Can draw Balloon, set color of balloon, random value of position and size
 
-// define global variables for storing colors 
+// define var colors 
 color blue = color(14,77,146);
 color white = color(255);
 
@@ -15,8 +15,9 @@ void setup(){
 }
 
 void draw(){
-  // define local variables for storing position x,y and extent
-  int position_x = 250, position_y = 200, size = 50;
+  // Now, the position and size can random value by using random(lower limit, upper limit) function
+  // random() function use with type 'float'
+  float position_x = random(width), position_y = random(width), size = random(10,100);
   
   // set color of balloon
   fill(blue);
