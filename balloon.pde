@@ -15,16 +15,17 @@ void draw(){
   // define var positions and size of the balloon
   float position_x, position_y, size;
   
-  /* using 'For Loop' for draw balloons
+  /* using 'While Loop' for draw balloons
      syntax : 
-        for (statement 1; statement 2; statement 3) {
-           ...code block to be executed...
+        while (condition) {
+            ...code block to be executed...
         }
   */
   
-  for (int i=0; i<10; i++){
-    // it will running this loop until i = 9 
-    // running this loop 10 rounds ("i = 0" until "i = 9")
+  int round = 0;
+  while (round < 10){
+    // if condition is true, it will running this loop until round = 9 
+    // running this loop 10 rounds ("round = 0" until "round = 9")
     
     position_x = random(width);
     position_y = random(width);
@@ -34,6 +35,9 @@ void draw(){
     stroke(blue); 
     circle(position_x, position_y, size);
     line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
+    
+    // add rounds
+    round += 1;
   }
   
   // called noLoop() for stop the code in draw()
