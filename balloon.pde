@@ -25,12 +25,14 @@ void draw(){
   circle(position_x, position_y, size);
   line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
   
-  /* Try using If...Else statement 
+  /* Try using else...if statement 
      syntax :
-     if (condition) {
-        ...block of code to be executed if the condition is true...
+     if (condition1) {
+        ...block of code to be executed if condition1 is true...
+     } else if (condition2) {
+        ...block of code to be executed if the condition1 is false and condition2 is true...
      } else {
-        ...block of code to be executed if the condition is false...
+        ...block of code to be executed if the condition1 is false and condition2 is false...
      }
   */
   
@@ -40,9 +42,14 @@ void draw(){
     // when position_y > 0 it will decrease value of position_y one by one
     position_y -= 1;
     
+  } else if (position_y < 0) {
+    
+    // when position_y beyond the top margin it will define value of position_y is height
+    position_y = height;
+    
   } else {
     
-    // when position 'y' beyond the top margin it will define value of position_y is height
+    // when position_y not match both conditions 
     position_y = height;  
   }
   
