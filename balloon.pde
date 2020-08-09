@@ -7,7 +7,7 @@ color blue = color(14,77,146);
 color white = color(255);
 
 // define var positions and size of the balloon
-float position_x = 250, position_y = 200, size = 50;
+int position_x = 250, position_y = 200, size = 50;
 
 void setup(){
   size(500,500);
@@ -16,20 +16,13 @@ void setup(){
 
 void draw(){
   
-  // set draw background every round for don't draw balloon overlapping
-  background(white);
-  
-  // draw a balloon
-  fill(blue);
-  stroke(blue); 
-  circle(position_x, position_y, size);
-  line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
-  
-  //called method
+  //called methods
+  drawBalloon(position_x, position_y, size);
   up();
+  
 }
 
-/* Try using method from statements
+/* Try using method
    syntax : 
      returnType nameOfMethod (Parameter List) {
        // method body
@@ -41,6 +34,17 @@ void draw(){
                       These are optional, method may contain zero parameters
    - method body : defines what the method does with the statements
 */
+
+void drawBalloon(int position_x, int position_y, int size){
+  // set draw background every round for don't draw balloon overlapping
+  background(white);
+  
+  // draw a balloon
+  fill(blue);
+  stroke(blue); 
+  circle(position_x, position_y, size);
+  line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
+}
 
 void up(){
   // method for balloon floating
