@@ -6,58 +6,69 @@
 color blue = color(14,77,146);
 color white = color(255);
 
-// define var positions and size of the balloon
-int position_x = 250, position_y = 200, size = 50;
+// declare and creating an object of the class
+Balloon balloon1;
 
 void setup(){
   size(500,500);
   background(white);
+  
+  // define parameters of class to an object
+  balloon1 = new Balloon(250,200,50);
 }
 
 void draw(){
   
-  //called methods
-  drawBalloon(position_x, position_y, size);
-  up();
+  //call methods in class by using the dot syntax (.) after an object
+  balloon1.draw();
+  balloon1.up();
   
 }
 
-/* Try using method
+/* Try using Class
    syntax : 
-     returnType nameOfMethod (Parameter List) {
-       // method body
+     class ClassName {
+        ...statements...
      }
-   
-   - returnType : method may return a value if not return value use return type = 'void'
-   - nameOfMethod : method name
-   - Parameter List : it is the type, order, and number of parameters of a method 
-                      These are optional, method may contain zero parameters
-   - method body : defines what the method does with the statements
 */
 
-void drawBalloon(int position_x, int position_y, int size){
-  // set draw background every round for don't draw balloon overlapping
-  background(white);
+class Balloon {
+  // declare attributes that using in class
+  int xpos, ypos, size;
   
-  // draw a balloon
-  fill(blue);
-  stroke(blue); 
-  circle(position_x, position_y, size);
-  line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
-}
-
-void up(){
-  // method for balloon floating
+  // define parameters when call class
+  Balloon (int position_x, int position_y, int sizeBall){
+    
+    //define value of attributes
+    xpos = position_x;
+    ypos = position_y;
+    size = sizeBall;
+  }
   
-  if (position_y > 0) {
+  void draw(){
+    // set draw background every round for don't draw balloon overlapping
+    background(white);
     
-    // when position_y > 0 it will decrease value of position_y one by one
-    position_y -= 1;
+    // draw a balloon
+    fill(blue);
+    stroke(blue); 
+    circle(xpos, ypos, size);
+    line(xpos, ypos+(size/2), xpos, ypos+(size/2)+size);
+  }
+  
+  void up(){
+    // method for balloon floating
     
-  } else {
-    
-    // when position_y beyond the top margin it will define value of position_y is height 
-    position_y = height;  
+    if (ypos > 0) {
+      // when position_y not over the top margin
+      ypos -= 1;
+      
+    } 
+    else {
+      // when position_y beyond the top margin
+      ypos = height;  
+    }
+  
   }
   
 }
