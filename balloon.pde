@@ -6,38 +6,52 @@
 color blue = color(14,77,146);
 color white = color(255);
 
-// declare and creating an object of the class
-Balloon balloon1;
+// declare and creating an Array object of the class
+// syntax : <ClassName>[] <ObjectName>; 
+Balloon[] balloons;
 
 void setup(){
   size(500,500);
   background(white);
   
-  // define parameters of class to an object
-  balloon1 = new Balloon(250,200,50);
+  // define number of balloons
+  int quantity = 10;
+  
+  // define quantity in array that called class
+  balloons = new Balloon[quantity];
+  
+  // using For Loop for define positions and size of each balloon
+  for(int n=0; n<quantity; n++){
+    
+    // define var to random positions and size of each balloon
+    float position_x = random(width);
+    float position_y = random(width);
+    float size = random(20,100);
+    
+    // define parameters of class to each array object
+    balloons[n] = new Balloon(position_x, position_y, size);
+  }
+
 }
 
 void draw(){
+  // set draw background every round for don't draw balloon overlapping
+  background(white);
   
-  //call methods in class by using the dot syntax (.) after an object
-  balloon1.draw();
-  balloon1.up();
+  //call methods in class using for loop
+  for (Balloon all_balloon : balloons){
+    all_balloon.draw();
+    all_balloon.up();
+  }
   
 }
 
-/* Try using Class
-   syntax : 
-     class ClassName {
-        ...statements...
-     }
-*/
-
 class Balloon {
   // declare attributes that using in class
-  int xpos, ypos, size;
+  float xpos, ypos, size;
   
-  // define parameters when call class
-  Balloon (int position_x, int position_y, int sizeBall){
+  // create a class constructor with parameters
+  Balloon (float position_x, float position_y, float sizeBall){
     
     //define value of attributes
     xpos = position_x;
@@ -46,9 +60,6 @@ class Balloon {
   }
   
   void draw(){
-    // set draw background every round for don't draw balloon overlapping
-    background(white);
-    
     // draw a balloon
     fill(blue);
     stroke(blue); 
@@ -62,7 +73,6 @@ class Balloon {
     if (ypos > 0) {
       // when position_y not over the top margin
       ypos -= 1;
-      
     } 
     else {
       // when position_y beyond the top margin
