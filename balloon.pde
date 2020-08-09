@@ -1,6 +1,6 @@
 // Name : Supansa Tantulset
 // Date : 9 August 2020
-// Can draw Balloons, set color of balloon, balloon can float
+// Can draw Balloons, set color of balloon, balloon can float and stop float
 
 // define var colors 
 color blue = color(14,77,146);
@@ -16,7 +16,7 @@ void setup(){
 
 void draw(){
   
-  // set draw background all round for don't draw balloon overlapping
+  // set draw background every round for don't draw balloon overlapping
   background(white);
   
   // draw a balloon
@@ -24,8 +24,18 @@ void draw(){
   stroke(blue); 
   circle(position_x, position_y, size);
   line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
-
+  
+  /* Try using If statement 
+     syntax :
+     if (condition) {
+        ...block of code to be executed if the condition is true...
+     }
+  */
+  
   // change value of position_y for balloon floating
-  position_y -= 1;
+  if (position_y > 0) {
+    // when position_y > 0 it will decrease value of position_y one by one
+    position_y -= 1;
+  }
   
 }
