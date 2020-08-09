@@ -25,31 +25,34 @@ void draw(){
   circle(position_x, position_y, size);
   line(position_x, position_y+(size/2), position_x, position_y+(size/2)+size);
   
-  /* Try using else...if statement 
-     syntax :
-     if (condition1) {
-        ...block of code to be executed if condition1 is true...
-     } else if (condition2) {
-        ...block of code to be executed if the condition1 is false and condition2 is true...
-     } else {
-        ...block of code to be executed if the condition1 is false and condition2 is false...
+  //called method
+  up();
+}
+
+/* Try using method from statements
+   syntax : 
+     returnType nameOfMethod (Parameter List) {
+       // method body
      }
-  */
+   
+   - returnType : method may return a value if not return value use return type = 'void'
+   - nameOfMethod : method name
+   - Parameter List : it is the type, order, and number of parameters of a method 
+                      These are optional, method may contain zero parameters
+   - method body : defines what the method does with the statements
+*/
+
+void up(){
+  // method for balloon floating
   
-  // change value of position_y for balloon floating
   if (position_y > 0) {
     
     // when position_y > 0 it will decrease value of position_y one by one
     position_y -= 1;
     
-  } else if (position_y < 0) {
-    
-    // when position_y beyond the top margin it will define value of position_y is height
-    position_y = height;
-    
   } else {
     
-    // when position_y not match both conditions 
+    // when position_y beyond the top margin it will define value of position_y is height 
     position_y = height;  
   }
   
