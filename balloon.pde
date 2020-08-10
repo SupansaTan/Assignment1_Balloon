@@ -13,7 +13,6 @@ color white = color(255);
 Balloon[] balloons;
 
 // create an array of colors
-// syntax : <type>[] <VarName> = { ...value...}; 
 color[] colors = {blue, green, pink, orange};
 
 void setup(){
@@ -79,13 +78,16 @@ class Balloon {
   void up(){
     // method for balloon floating
     
-    if (ypos > 0) {
+    if (ypos > 0 && xpos > 0) {
       // when position_y not over the top margin
+      // and position_x not over the right margin
       ypos -= 1;
+      xpos += 1;
     } 
     else {
-      // when position_y beyond the top margin
-      ypos = height;  
+      // when position_x and position_y beyond the top margin
+      ypos = height;
+      xpos = random(width);
     }
   
   }
