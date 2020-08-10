@@ -1,14 +1,20 @@
 // Name : Supansa Tantulset
-// Date : 9 August 2020
-// Can draw Balloons, set color of balloon, balloon can float
+// Date : 11 August 2020
+// Can draw Balloons, random color of each balloon, balloon floating
 
 // define var colors 
 color blue = color(14,77,146);
+color green = color(91,194,54);
+color pink = color(243,168,188);
+color orange = color(245,173,148);
 color white = color(255);
 
 // declare and creating an Array object of the class
-// syntax : <ClassName>[] <ObjectName>; 
 Balloon[] balloons;
+
+// create an array of colors
+// syntax : <type>[] <VarName> = { ...value...}; 
+color[] colors = {blue, green, pink, orange};
 
 void setup(){
   size(500,500);
@@ -20,16 +26,17 @@ void setup(){
   // define quantity in array that called class
   balloons = new Balloon[quantity];
   
-  // using For Loop for define positions and size of each balloon
+  // using For Loop for define positions, size and color of each balloon
   for(int n=0; n<quantity; n++){
     
-    // define var to random positions and size of each balloon
+    // define var to random positions, size and color of each balloon
     float position_x = random(width);
     float position_y = random(width);
     float size = random(20,100);
+    int index_color = int(random(colors.length));
     
     // define parameters of class to each array object
-    balloons[n] = new Balloon(position_x, position_y, size);
+    balloons[n] = new Balloon(position_x, position_y, size, index_color);
   }
 
 }
@@ -49,20 +56,22 @@ void draw(){
 class Balloon {
   // declare attributes that using in class
   float xpos, ypos, size;
+  int get_color;
   
   // create a class constructor with parameters
-  Balloon (float position_x, float position_y, float sizeBall){
+  Balloon (float position_x, float position_y, float sizeBall, int index_color){
     
     //define value of attributes
     xpos = position_x;
     ypos = position_y;
     size = sizeBall;
+    get_color = index_color;
   }
   
   void draw(){
     // draw a balloon
-    fill(blue);
-    stroke(blue); 
+    fill(colors[get_color]);
+    stroke(colors[get_color]); 
     circle(xpos, ypos, size);
     line(xpos, ypos+(size/2), xpos, ypos+(size/2)+size);
   }
